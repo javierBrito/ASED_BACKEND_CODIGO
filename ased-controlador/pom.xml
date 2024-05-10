@@ -13,7 +13,7 @@
 	<artifactId>ased-controlador</artifactId>
 	<packaging>war</packaging>
 	<name>ased-controlador</name>
-	<description>asedinfo servicios</description>
+	<description>ased servicios</description>
 
 	<properties>
 		<java.version>1.8</java.version>
