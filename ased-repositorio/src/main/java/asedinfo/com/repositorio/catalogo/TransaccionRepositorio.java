@@ -26,6 +26,9 @@ public interface TransaccionRepositorio extends JpaRepository<Transaccion, Long>
 	@Query(nativeQuery = false, value = "select r from Transaccion r where r.cliente.codigo = :codCliente and r.estado = 'A' order by r.producto.descripcion, r.claveCuenta, r.descripcion")
 	List<Transaccion> listarTransaccionPorCliente(@Param("codCliente") Long codCliente);
 
+	@Query(nativeQuery = false, value = "select r from Transaccion r where r.cliente.codigo = :codCliente and r.producto.codigo = :codProducto and r.estado = 'A' order by r.producto.descripcion, r.claveCuenta, r.descripcion")
+	List<Transaccion> listarTransaccionPorClienteYProducto(@Param("codCliente") Long codCliente, @Param("codProducto") Long codProducto);
+
 	@Query(nativeQuery = false, value = "select r from Transaccion r where r.fechaRegistra >= :fechaInicio and r.fechaRegistra <= :fechaFin and r.estado = 'A' order by r.cliente.persona.nombres, r.cliente.persona.apellidos, r.producto.descripcion, r.claveCuenta, r.descripcion")
 	List<Transaccion> listarTransaccionPorRangoFechas(@Param("fechaInicio") Date fechaInicio, @Param("fechaFin") Date fechaFin);
 

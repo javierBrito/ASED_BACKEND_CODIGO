@@ -63,6 +63,11 @@ public class TransaccionServicioImpl implements TransaccionServicio {
 	}
 
 	@Override
+	public List<Transaccion> listarTransaccionPorClienteYProducto(Long codCliente, Long codProducto) {
+		return transaccionRepositorio.listarTransaccionPorClienteYProducto(codCliente, codProducto);
+	}
+
+	@Override
 	public List<Transaccion> buscarPorDescripcion(String descripcion) {
 		return transaccionRepositorio.findByDescripcionAndEstado(descripcion, Constantes.REGISTRO_ACTIVO);
 	}
