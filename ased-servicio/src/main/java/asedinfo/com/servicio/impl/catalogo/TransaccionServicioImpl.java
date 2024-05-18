@@ -63,6 +63,11 @@ public class TransaccionServicioImpl implements TransaccionServicio {
 	}
 
 	@Override
+	public List<Transaccion> listarTransaccionPorProducto(Long codProducto) {
+		return transaccionRepositorio.listarTransaccionPorProducto(codProducto);
+	}
+
+	@Override
 	public List<Transaccion> listarTransaccionPorClienteYProducto(Long codCliente, Long codProducto) {
 		return transaccionRepositorio.listarTransaccionPorClienteYProducto(codCliente, codProducto);
 	}

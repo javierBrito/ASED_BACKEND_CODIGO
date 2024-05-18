@@ -87,6 +87,18 @@ public class TransaccionControlador {
 		return response;
 	}
 
+	@GetMapping(value = "listarTransaccionPorProducto/{codProducto}")
+	public ResponseGenerico<Transaccion> listarTransaccionPorProducto(@PathVariable("codProducto") Long codProducto) {
+		List<Transaccion> listaTransaccion = transaccionServicio.listarTransaccionPorProducto(codProducto);
+		// Respuesta
+		ResponseGenerico<Transaccion> response = new ResponseGenerico<>();
+		response.setListado(listaTransaccion);
+		response.setTotalRegistros((long) listaTransaccion.size());
+		response.setCodigoRespuesta(Constantes.CODIGO_RESPUESTA_OK);
+		response.setMensaje(Constantes.MENSAJE_OK);
+		return response;
+	}
+
 	@GetMapping(value = "listarTransaccionPorClienteYProducto/{codCliente}/{codProducto}")
 	public ResponseGenerico<Transaccion> listarTransaccionPorClienteYProducto(@PathVariable("codCliente") Long codCliente, @PathVariable("codProducto") Long codProducto) {
 		List<Transaccion> listaTransaccion = transaccionServicio.listarTransaccionPorClienteYProducto(codCliente, codProducto);

@@ -45,6 +45,8 @@ public interface TransaccionServicio {
 	 */
 	List<Transaccion> listarTransaccionPorCliente(Long codCliente);
 
+	List<Transaccion> listarTransaccionPorProducto(Long codProducto);
+
 	List<Transaccion> listarTransaccionPorClienteYProducto(Long codCliente, Long codProducto);
 
 	/**
