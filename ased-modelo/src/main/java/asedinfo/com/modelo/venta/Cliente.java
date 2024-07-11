@@ -195,17 +195,20 @@ public class Cliente implements java.io.Serializable {
 	}
 
 	public String getDireccion() {
+		if (this.persona != null) {
+			direccion = this.persona.getDireccion();
+		}
 		return direccion;
 	}
 
 	public void setDireccion(String direccion) {
-		if (this.persona != null) {
-			direccion = this.persona.getDireccion();
-		}
 		this.direccion = direccion;
 	}
 
 	public Date getFechaNacimiento() {
+		if (this.persona != null) {
+			fechaNacimiento = this.persona.getFechaNacimiento();
+		}
 		return fechaNacimiento;
 	}
 
