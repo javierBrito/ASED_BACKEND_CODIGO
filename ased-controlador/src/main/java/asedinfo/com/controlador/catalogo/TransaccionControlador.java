@@ -163,7 +163,7 @@ public class TransaccionControlador {
 		if (transaccion != null) {
 			// Restar la cantidad de productos de la transaccion
 			Producto producto = productoServicio.buscarProductoPorCodigo(transaccion.getCodProducto());
-			if (producto.getNumExistenciaActual() > 0 && producto.getNumExistenciaActual() > transaccion.getNumProducto()) {
+			if (producto.getNumExistenciaActual() > 0 && producto.getNumExistenciaActual() >= transaccion.getNumProducto()) {
 				producto.setNumExistenciaActual(producto.getNumExistenciaActual() - transaccion.getNumProducto());
 				productoServicio.registrar(producto);
 			}
