@@ -105,7 +105,9 @@ public class CuentaClaveControlador {
 		if (listaCuentaClave.size() > 0) {
 			Integer respuesta = cuentaClaveServicio.eliminarCuentaClavePorCodTransaccion(listaCuentaClave.get(0).getCodTransaccion());
 			for (CuentaClave cuentaClaveAux : listaCuentaClave) {
-				cuentaClave = cuentaClaveServicio.registrar(cuentaClaveAux);
+				if (cuentaClaveAux.getCuenta() != ".") {
+					cuentaClave = cuentaClaveServicio.registrar(cuentaClaveAux);
+				}
 			}
 		}
 		// Respuesta
