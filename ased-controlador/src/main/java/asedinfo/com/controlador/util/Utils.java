@@ -70,7 +70,7 @@ public class Utils {
 		claims.put("identificacion", identificacion);
 		claims.put("jti", UUID.randomUUID());
 		
-		token = TokenUtil.createJWTWithCustomClaims("" + codigo, "enc", "enc", 3000000 , claims);
+		token = TokenUtil.createJWTWithCustomClaims("" + codigo, "enc", "enc", 30000000 , claims);
 		
 		return token;
 	}
