@@ -35,7 +35,7 @@ public interface TransaccionRepositorio extends JpaRepository<Transaccion, Long>
 	@Query(nativeQuery = false, value = "select r from Transaccion r where r.fechaRegistra >= :fechaInicio and r.fechaRegistra <= :fechaFin and r.estado = 'A' order by r.cliente.persona.nombres, r.cliente.persona.apellidos, r.producto.descripcion, r.claveCuenta, r.descripcion")
 	List<Transaccion> listarTransaccionPorRangoFechas(@Param("fechaInicio") Date fechaInicio, @Param("fechaFin") Date fechaFin);
 
-	@Query(nativeQuery = false, value = "select r from Transaccion r where ((datediff(r.fechaFin, Now()) < 0 or datediff(fecha_fin, Now()) <= 5) or ((r.fechaCambia is not null) and datediff(r.fechaCambia, Now()) <= 0)) and r.estado = 'A' order by r.claveCuenta")
+	@Query(nativeQuery = false, value = "select r from Transaccion r where ((datediff(r.fechaFin, Now()) < 0 or datediff(fecha_fin, Now()) <= 3) or ((r.fechaCambia is not null) and datediff(r.fechaCambia, Now()) <= 0)) and r.estado = 'A' order by r.claveCuenta")
 	List<Transaccion> listarTransaccionACaducarse(@Param("numDias") int numDias);
 	
 	List<Transaccion> findByDescripcionAndEstado(String descripcion, String estado);
